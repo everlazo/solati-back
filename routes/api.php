@@ -14,12 +14,11 @@ Route::group(['prefix' => 'user'], function () {
     Route::post('', [UserController::class, 'create']);
     Route::get('', [UserController::class, 'all']);
     Route::get('/{id}', [UserController::class, 'find']);
-    Route::get('/{col}/{id}', [UserController::class, 'findBy']);
     Route::put('/{id}', [UserController::class, 'update']);
     Route::delete('/{id}', [UserController::class, 'delete']);
 });
 
-// Route::group(["middleware" => ["jwt.verify"]], function () {
+Route::group(["middleware" => ["jwt.verify"]], function () {
 
     Route::group(['prefix' => 'auth'], function () {
         Route::delete('logout', [AuthController::class, 'logout']);
@@ -32,4 +31,4 @@ Route::group(['prefix' => 'user'], function () {
         Route::put('/{id}', [TaskController::class, 'update']);
         Route::delete('/{id}', [TaskController::class, 'delete']);
     });
-// });
+});

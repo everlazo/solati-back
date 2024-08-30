@@ -16,9 +16,9 @@ class GetAllUserService extends Service
         $this->repository = $repository;
     }
 
-    public function get()
+    public function all()
     {
-        $data = $this->repository->all();
-        return $this->resolve(false, Constants::OK, $data);
+        $entities = $this->repository->all();
+        return $this->resolve(false, Constants::OK, $entities);
     }
 }

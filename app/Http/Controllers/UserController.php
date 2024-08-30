@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Services\User\Create\CreateUserService;
 use App\Services\User\Delete\DeleteUserService;
 use App\Services\User\Search\GetAllUserService;
+use App\Services\User\SearchById\SearchByIdUserService;
 use App\Services\User\Update\UpdateUserService;
 
 class UserController extends Controller
@@ -15,22 +16,30 @@ class UserController extends Controller
     private $createUserService;
     private $deleteUserService;
     private $updateUserService;
+    private $getByIdUserService;
 
     public function __construct(
         CreateUserService $createUserService,
         GetAllUserService $getAllUserService,
         DeleteUserService $deleteUserService,
-        UpdateUserService $updateUserService
+        UpdateUserService $updateUserService,
+        SearchByIdUserService $getByIdUserService
     ) {
         $this->getAllUserService = $getAllUserService;
         $this->createUserService = $createUserService;
         $this->deleteUserService = $deleteUserService;
         $this->updateUserService = $updateUserService;
+        $this->getByIdUserService = $getByIdUserService;
     }
 
     public function all()
     {
-        return $this->getAllUserService->get();
+        return $this->getAllUserService->all();
+    }
+
+    public function find($id)
+    {
+        return $this->getByIdUserService->find($id);
     }
 
     public function create(Request $request)
