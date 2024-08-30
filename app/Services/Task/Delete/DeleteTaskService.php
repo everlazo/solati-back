@@ -22,7 +22,7 @@ class DeleteTaskService extends Service
             $delete = $this->repository->delete($model);
             return $delete ? $this->resolve(false, Constants::DELETE_SUCESSFULL) : $this->resolve(true, Constants::DELETE_UNSUCESSFULL);
         } else {
-            return $this->resolve(true, Constants::REGISTER_NOT_FOUND, null, Constants::STATUS_BAD_REQUEST);
+            return $this->resolve(true, Constants::REGISTER_NOT_FOUND, null, Constants::STATUS_NOT_FOUND);
         }
     }
 }

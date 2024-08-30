@@ -18,7 +18,7 @@ class GetAllTaskService extends Service
 
     public function all()
     {
-        $data = $this->repository->all();
-        return $this->resolve(false, Constants::OK, $data);
+        $entities = $this->repository->all();
+        return $this->resolve(false, Constants::OK, $entities);
     }
 }

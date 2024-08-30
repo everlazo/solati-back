@@ -36,6 +36,6 @@ class CreateTaskService extends Service
         if ($entity->id == null) {
             return $this->resolve(true, Constants::REGISTER_UNSUCESSFULL, $entity->errors, Constants::STATUS_BAD_REQUEST);
         }
-        return $this->resolve(false, Constants::REGISTER_SUCESSFULL);
+        return $this->resolve(false, Constants::REGISTER_SUCESSFULL, null, Constants::STATUS_CREATED);
     }
 }

@@ -18,7 +18,7 @@ class SearchByIdTaskService extends Service
 
     public function find($id)
     {
-        $data = $this->repository->find($id);
-        return $this->resolve(false, Constants::OK, $data);
+        $entity = $this->repository->find($id);
+        return $entity ? $this->resolve(false, Constants::OK, $entity) : $this->resolve(true, Constants::REGISTER_NOT_FOUND, null, Constants::STATUS_NOT_FOUND);
     }
 }
