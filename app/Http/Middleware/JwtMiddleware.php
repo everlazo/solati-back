@@ -16,7 +16,10 @@ class JwtMiddleware extends BaseMiddleware
         try {
             JWTAuth::parseToken()->authenticate();
         } catch (Exception $e) {
-            return response()->json(null, Constants::STATUS_UNAUTHORIZED);
+            return response()->json([
+                Constants::ERROR => Constants::UNAUTHORIZED,
+                Constants::MESSAGE => Constants::NOT_LOGGIN_SESSION_EXPIRED
+            ], Constants::STATUS_UNAUTHORIZED);
         }
         return $next($request);
     }

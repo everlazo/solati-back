@@ -33,7 +33,8 @@ class Constants
     const USER_CHECK_TOKEN_VALID = "Token es valido.";
     const USER_CHECK_TOKEN_INVALID = "Token invalido.";
     const END_SESSION = "Sesion terminada.";
-
+    const UNAUTHORIZED = "Unauthorized.";
+    const NOT_LOGGIN_SESSION_EXPIRED = "You are not logged in or your session has expired.";
 
     //ATTRIBUTES
     const EMAIL = "email";
